@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Working With Us | Wholesome Plates Catering LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F6F2EB;
+      --white: #FAFAF8;
+      --forest: #1E3D28;
+      --forest-mid: #2D5A3D;
+      --gold: #C49A3C;
+      --gold-light: #DDB95A;
+      --charcoal: #1A1A18;
+      --mid: #5A5A52;
+      --clay: #C4622D;
+      --border: rgba(30,61,40,0.12);
+      color-scheme: light;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background-color: rgba(30,61,40,0.97);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--gold-light); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] { color: var(--gold-light); }
+
+    .nav-cta {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--forest);
+      background-color: var(--gold-light);
+      padding: 10px 22px;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+
+    .nav-cta:hover { background-color: var(--gold); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background-color: var(--cream);
+      padding: 160px 48px 80px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .label {
+      display: inline-block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      line-height: 1.0;
+      letter-spacing: 0.02em;
+      color: var(--forest);
+      margin-bottom: 24px;
+    }
+
+    .page-header p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--mid);
+      max-width: 620px;
+    }
+
+    /* ── SHARED ── */
+    .section-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    /* ── NON-NEGOTIABLES ── */
+    .non-neg {
+      background-color: var(--white);
+      padding: 96px 48px;
+    }
+
+    .non-neg-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .non-neg-head {
+      margin-bottom: 60px;
+    }
+
+    .non-neg-head .section-title { color: var(--forest); }
+
+    .non-neg-head p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--mid);
+      max-width: 560px;
+      margin-top: 16px;
+    }
+
+    .nonneg-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .nonneg-item {
+      background-color: var(--cream);
+      padding: 36px 40px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .nonneg-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      line-height: 1;
+      color: var(--clay);
+      flex-shrink: 0;
+      width: 36px;
+    }
+
+    .nonneg-content h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+      color: var(--forest);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .nonneg-content p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--mid);
+    }
+
+    /* ── GROWTH PATH ── */
+    .growth {
+      background-color: var(--forest);
+      padding: 96px 48px;
+    }
+
+    .growth-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .growth .section-label { color: var(--gold-light); }
+
+    .growth .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.0;
+      letter-spacing: 0.02em;
+      color: #fff;
+      margin-bottom: 60px;
+    }
+
+    .phases {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+    }
+
+    .phase {
+      background-color: var(--forest-mid);
+      padding: 40px 36px;
+    }
+
+    .phase-tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .phase-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: rgba(255,255,255,0.12);
+      margin-bottom: 16px;
+    }
+
+    .phase h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.06em;
+      color: #fff;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .phase p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .phase-timeline {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(196,154,60,0.4);
+      padding: 5px 12px;
+      margin-top: 20px;
+    }
+
+    /* ── LEADERSHIP ── */
+    .leadership {
+      background-color: var(--cream);
+      padding: 96px 48px;
+    }
+
+    .leadership-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 80px;
+      margin-top: 56px;
+    }
+
+    .lead-item {
+      border-top: 2px solid var(--gold);
+      padding-top: 24px;
+    }
+
+    .lead-item h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      color: var(--forest);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .lead-item p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--mid);
+    }
+
+    /* ── CLOSING ── */
+    .closing {
+      background-color: var(--charcoal);
+      padding: 96px 48px;
+    }
+
+    .closing-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .closing .section-label { color: var(--gold); }
+
+    .closing-quote {
+      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(246,242,235,0.85);
+      margin: 32px 0 48px;
+    }
+
+    .closing-rule {
+      width: 48px;
+      height: 2px;
+      background-color: var(--gold);
+      margin: 0 auto 28px;
+    }
+
+    .closing-sig {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.0rem;
+      letter-spacing: 0.12em;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .closing-title {
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(246,242,235,0.45);
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background-color: var(--charcoal);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 44px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      color: var(--cream);
+    }
+
+    .footer-logo span { color: var(--gold-light); }
+
+    .footer-sub {
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: rgba(246,242,235,0.4);
+      margin-top: 4px;
+    }
+
+    .footer-right {
+      text-align: right;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: rgba(246,242,235,0.35);
+      letter-spacing: 0.04em;
+      line-height: 1.8;
+    }
+
+    .footer-right a { color: rgba(246,242,235,0.35); text-decoration: none; }
+    .footer-right a:hover { color: var(--gold-light); }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .page-header { padding: 120px 24px 60px; }
+      .non-neg { padding: 64px 24px; }
+      .nonneg-grid { grid-template-columns: 1fr; }
+      .growth { padding: 64px 24px; }
+      .phases { grid-template-columns: 1fr; }
+      .leadership { padding: 64px 24px; }
+      .leadership-grid { grid-template-columns: 1fr; gap: 36px; }
+      .closing { padding: 64px 24px; }
+      footer { flex-direction: column; gap: 20px; padding: 32px 24px; text-align: center; }
+      .footer-right { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">WHOLESOME <span>PLATES</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#gallery">In the Field</a></li>
+    <li><a href="about.html">Our Story</a></li>
+    <li><a href="working-with-us.html" aria-current="page">Working With Us</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:info@wholesomeplatescatering.com" class="nav-cta">Partner With Us</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-inner reveal">
+    <div class="label">Culture &amp; Expectations</div>
+    <h1 class="section-title">WORKING<br>WITH US</h1>
+    <p>Wholesome Plates is a professional kitchen, not a stepping stone. If you join this team, we expect you to care — about the food, the people, and the standard. Here is exactly what that looks like.</p>
+  </div>
+</header>
+
+<!-- SIX NON-NEGOTIABLES -->
+<section class="non-neg">
+  <div class="non-neg-inner">
+    <div class="non-neg-head reveal">
+      <div class="section-label">The Standard</div>
+      <h2 class="section-title">SIX<br>NON-NEGOTIABLES</h2>
+      <p>These are not aspirational values on a wall. They are the baseline — the minimum expectation for everyone on this team, regardless of role or tenure.</p>
+    </div>
+
+    <div class="nonneg-grid">
+      <div class="nonneg-item reveal">
+        <div class="nonneg-num">01</div>
+        <div class="nonneg-content">
+          <h3>Takes Direction Without Ego</h3>
+          <p>Feedback is fuel here, not criticism. The team that listens and adapts performs at a higher level than the one that already knows everything. Rank has no bearing on whether you're open to correction.</p>
+        </div>
+      </div>
+
+      <div class="nonneg-item reveal">
+        <div class="nonneg-num">02</div>
+        <div class="nonneg-content">
+          <h3>Pursues Improvement</h3>
+          <p>We expect everyone — from prep to lead — to be actively getting better. Ask questions. Study the craft. Do your work slightly better today than you did yesterday. Stagnation is not an option here.</p>
+        </div>
+      </div>
+
+      <div class="nonneg-item reveal">
+        <div class="nonneg-num">03</div>
+        <div class="nonneg-content">
+          <h3>Kitchen Cleanliness Is Always the Standard</h3>
+          <p>A clean kitchen is a safe kitchen. A safe kitchen is a professional kitchen. This is not a preference — it is a non-negotiable from Day 1 through every day after.</p>
+        </div>
+      </div>
+
+      <div class="nonneg-item reveal">
+        <div class="nonneg-num">04</div>
+        <div class="nonneg-content">
+          <h3>Integrity</h3>
+          <p>Do what you said you would do, especially when no one is watching. We trust our team completely until given a reason not to. That trust is earned and it is yours to protect.</p>
+        </div>
+      </div>
+
+      <div class="nonneg-item reveal">
+        <div class="nonneg-num">05</div>
+        <div class="nonneg-content">
+          <h3>Proactive Communication</h3>
+          <p>If something is off, say something. If you are going to be late, call ahead. If you see a problem forming, raise it before it becomes a crisis. Silence is not neutral — it is costly.</p>
+        </div>
+      </div>
+
+      <div class="nonneg-item reveal">
+        <div class="nonneg-num">06</div>
+        <div class="nonneg-content">
+          <h3>Ownership Mindset</h3>
+          <p>Treat this kitchen like it belongs to you. That means caring about quality, watching the details, and not waiting to be told before handling something obvious. Leaders are made here, not assigned.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE-PHASE GROWTH PATH -->
+<section class="growth">
+  <div class="growth-inner">
+    <div class="reveal">
+      <div class="section-label">Your Journey</div>
+      <h2 class="section-title">THREE PHASES<br>OF GROWTH</h2>
+    </div>
+
+    <div class="phases">
+      <div class="phase reveal">
+        <div class="phase-tag">Phase One</div>
+        <div class="phase-num">1</div>
+        <h3>Foundation</h3>
+        <p>You are here to learn the system and prove you belong. Focus on showing up consistently, mastering your station, and executing our standards without shortcuts. Success at this phase looks like reliability, cleanliness, and a readiness to absorb everything.</p>
+        <div class="phase-timeline">Months 1 – 3</div>
+      </div>
+
+      <div class="phase reveal">
+        <div class="phase-tag">Phase Two</div>
+        <div class="phase-num">2</div>
+        <h3>Contribution</h3>
+        <p>You have earned trust. Now we expect more. Run your station without reminders, support newer team members, and proactively improve the work around you. We will give you more responsibility as you demonstrate readiness — not before, and never after.</p>
+        <div class="phase-timeline">Months 4 – 9</div>
+      </div>
+
+      <div class="phase reveal">
+        <div class="phase-tag">Phase Three</div>
+        <div class="phase-num">3</div>
+        <h3>Leadership</h3>
+        <p>If you have excelled through Phases 1 and 2, we will invest in your advancement. This may look like a senior role, lead position at events, or a defined path toward kitchen management. Growth here is earned — and it is real.</p>
+        <div class="phase-timeline">Month 10+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT FROM LEADERSHIP -->
+<section class="leadership">
+  <div class="leadership-inner">
+    <div class="reveal">
+      <div class="section-label">Our Commitment</div>
+      <h2 class="section-title">WHAT TO EXPECT<br>FROM LEADERSHIP</h2>
+    </div>
+
+    <div class="leadership-grid">
+      <div class="lead-item reveal">
+        <h3>Clear Expectations</h3>
+        <p>You will always know what is expected of you. We do not move goalposts or hold back information that affects your performance. Clarity is a form of respect.</p>
+      </div>
+
+      <div class="lead-item reveal">
+        <h3>Honest Feedback</h3>
+        <p>We will tell you what is working and what is not, directly and with respect. No surprises at review time. No feedback withheld until it is too late to act on.</p>
+      </div>
+
+      <div class="lead-item reveal">
+        <h3>Real Investment</h3>
+        <p>If you are committed to growth, we are committed to your development. That includes training, mentorship, and real advancement opportunities — not empty promises.</p>
+      </div>
+
+      <div class="lead-item reveal">
+        <h3>Fair Treatment</h3>
+        <p>You will be paid fairly, treated with dignity, and heard when you speak. This is non-negotiable from leadership — the same way it is non-negotiable from you.</p>
+      </div>
+
+      <div class="lead-item reveal">
+        <h3>Mutual Accountability</h3>
+        <p>We hold ourselves to the same standards we ask of you. Leadership models the culture here — it does not just manage it. You will never be held to a standard we are not willing to keep ourselves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING STATEMENT -->
+<section class="closing">
+  <div class="closing-inner">
+    <div class="section-label">From the Founder</div>
+    <p class="closing-quote reveal">"Wholesome Plates is being built to last. The people inside it are what make that possible. If these values align with how you already show up to work, you will find a home here. If they are where you want to grow, we want to help you get there. We do not expect perfection. We expect alignment, drive, and honesty. Everything else we can build together."</p>
+    <div class="closing-rule"></div>
+    <div class="closing-sig">Ariana Wharton</div>
+    <div class="closing-title">Founder &amp; CEO, Wholesome Plates Catering LLC</div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">WHOLESOME <span>PLATES</span> CATERING LLC</div>
+    <div class="footer-sub">Atlanta, Georgia &nbsp;·&nbsp; CACFP &amp; SFSP Certified</div>
+  </div>
+  <div class="footer-right">
+    <a href="mailto:info@wholesomeplatescatering.com">info@wholesomeplatescatering.com</a><br>
+    &copy; 2026 Wholesome Plates Catering LLC. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
