@@ -582,9 +582,70 @@
       transform: none;
     }
 
+    /* ── MOBILE NAV ── */
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: #fff;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background-color: rgba(30,61,40,0.99);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      padding: 10px 0;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a[aria-current="page"] { color: var(--gold-light); }
+
+    .mobile-menu .mobile-cta {
+      margin-top: 20px;
+      color: var(--gold-light);
+      border: 1px solid rgba(221,185,90,0.35);
+      padding: 12px 32px;
+      font-size: 0.88rem;
+      letter-spacing: 0.14em;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 14px 20px; }
+      .nav-burger { display: flex; }
       .nav-links { display: none; }
       .hero-content { padding: 0 24px 56px; }
       .about { grid-template-columns: 1fr; padding: 0 24px; margin: 60px auto; gap: 40px; }
@@ -618,8 +679,20 @@
     <li><a href="working-with-us.html">Working With Us</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <a href="mailto:info@wholesomeplatescatering.com" class="nav-cta">Partner With Us</a>
 </nav>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#gallery">In the Field</a>
+  <a href="about.html">Our Story</a>
+  <a href="working-with-us.html">Working With Us</a>
+  <a href="#contact">Contact</a>
+  <a href="mailto:info@wholesomeplatescatering.com" class="mobile-cta">Partner With Us</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -842,6 +915,23 @@
   document.getElementById('next').addEventListener('click', () => goTo(current + 1));
   document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
   window.addEventListener('resize', () => goTo(current));
+
+  const burger = document.getElementById('nav-burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    mobileMenu.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }));
 </script>
 
 </body>
