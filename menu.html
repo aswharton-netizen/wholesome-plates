@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>June 2026 Menu | Wholesome Plates Catering LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F6F2EB; --white: #FAFAF8; --forest: #1E3D28; --forest-mid: #2D5A3D;
+      --gold: #C49A3C; --gold-light: #DDB95A; --charcoal: #1A1A18; --mid: #5A5A52;
+      --border: rgba(30,61,40,0.12); color-scheme: light;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background-color: var(--cream); color: var(--charcoal); overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background-color: rgba(30,61,40,0.97); backdrop-filter: blur(10px); }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.08em; color: #fff; text-decoration: none; }
+    .nav-logo span { color: var(--gold-light); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--gold-light); }
+    .nav-cta { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--forest); background-color: var(--gold-light); padding: 10px 22px; text-decoration: none; transition: background-color 0.2s; }
+    .nav-cta:hover { background-color: var(--gold); }
+
+    .nav-burger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .nav-burger span { display: block; width: 22px; height: 2px; background-color: #fff; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background-color: rgba(30,61,40,0.99); flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.8); text-decoration: none; padding: 10px 0; transition: color 0.2s; }
+    .mobile-menu a:hover, .mobile-menu a[aria-current="page"] { color: var(--gold-light); }
+    .mobile-menu .mobile-cta { margin-top: 20px; color: var(--gold-light); border: 1px solid rgba(221,185,90,0.35); padding: 12px 32px; font-size: 0.88rem; letter-spacing: 0.14em; }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background-color: var(--cream); padding: 140px 48px 64px; border-bottom: 1px solid var(--border); }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+    .header-text .label { font-family: 'Bebas Neue', sans-serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.0; letter-spacing: 0.02em; color: var(--forest); }
+    .header-badge { background-color: var(--forest); padding: 14px 24px; text-align: center; flex-shrink: 0; }
+    .header-badge-main { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--gold-light); }
+    .header-badge-sub { font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; margin-top: 2px; }
+
+    /* ── SECTION SHARED ── */
+    .section-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 8px; display: block; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.0; letter-spacing: 0.02em; margin-bottom: 12px; }
+    .menu-note { font-size: 0.8rem; font-weight: 300; letter-spacing: 0.06em; }
+    .week-head { margin-bottom: 16px; }
+    .week-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; }
+
+    /* ── LUNCH ── */
+    .lunch-section { background-color: var(--forest); padding: 80px 48px; }
+    .lunch-inner { max-width: 1100px; margin: 0 auto; }
+    .lunch-section .section-label { color: var(--gold-light); }
+    .lunch-section .section-title { color: #fff; }
+    .lunch-section .menu-note { color: rgba(255,255,255,0.5); margin-bottom: 56px; }
+    .lunch-section .week-label { color: var(--gold); }
+    .lunch-week { margin-bottom: 40px; }
+    .lunch-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+    .lunch-card { background-color: var(--forest-mid); padding: 22px 18px; }
+    .lunch-day { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; }
+    .lunch-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; line-height: 1.15; color: #fff; margin-bottom: 14px; letter-spacing: 0.04em; }
+    .lunch-components { display: flex; flex-direction: column; gap: 5px; }
+    .lunch-row { font-size: 0.78rem; font-weight: 300; color: rgba(255,255,255,0.6); display: flex; gap: 8px; align-items: baseline; }
+    .lunch-type { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(196,154,60,0.7); min-width: 44px; flex-shrink: 0; }
+
+    /* ── BREAKFAST ── */
+    .bfast-section { background-color: var(--white); padding: 80px 48px; }
+    .bfast-inner { max-width: 1100px; margin: 0 auto; }
+    .bfast-section .section-label { color: var(--gold); }
+    .bfast-section .section-title { color: var(--forest); }
+    .bfast-section .menu-note { color: var(--mid); margin-bottom: 56px; }
+    .bfast-section .week-label { color: var(--mid); }
+    .bfast-week { margin-bottom: 36px; }
+    .bfast-table-wrap { overflow-x: auto; }
+    .bfast-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+    .bfast-table th { font-family: 'Bebas Neue', sans-serif; font-size: 0.78rem; letter-spacing: 0.12em; color: var(--forest); padding: 10px 14px; text-align: left; border-bottom: 2px solid var(--border); background-color: var(--white); }
+    .bfast-table td { padding: 14px; border-bottom: 1px solid var(--border); background-color: var(--cream); vertical-align: top; }
+    .bfast-grain { font-size: 0.9rem; font-weight: 500; color: var(--charcoal); }
+    .bfast-fruit { font-size: 0.82rem; font-weight: 300; color: var(--mid); margin-top: 3px; }
+
+    /* ── FOOTER ── */
+    footer { background-color: var(--charcoal); padding: 44px 48px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--cream); }
+    .footer-logo span { color: var(--gold-light); }
+    .footer-sub { font-size: 0.72rem; font-weight: 300; letter-spacing: 0.06em; color: rgba(246,242,235,0.4); margin-top: 4px; }
+    .footer-right { text-align: right; font-size: 0.72rem; font-weight: 300; color: rgba(246,242,235,0.35); letter-spacing: 0.04em; line-height: 1.8; }
+    .footer-right a { color: rgba(246,242,235,0.35); text-decoration: none; }
+    .footer-right a:hover { color: var(--gold-light); }
+    .footer-team-login { font-size: 0.62rem !important; color: rgba(246,242,235,0.18) !important; display: inline-block; margin-top: 2px; }
+    .footer-team-login:hover { color: rgba(246,242,235,0.45) !important; }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 14px 20px; }
+      .nav-burger { display: flex; }
+      .nav-links { display: none; }
+      .page-header { padding: 110px 24px 48px; }
+      .page-header-inner { flex-direction: column; align-items: flex-start; }
+      .header-badge { display: none; }
+      .lunch-section { padding: 64px 24px; }
+      .lunch-grid { grid-template-columns: 1fr 1fr; }
+      .bfast-section { padding: 64px 24px; }
+      footer { flex-direction: column; gap: 20px; padding: 32px 24px; text-align: center; }
+      .footer-right { text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .lunch-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">WHOLESOME <span>PLATES</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="menu.html" aria-current="page">Menu</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#gallery">In the Field</a></li>
+    <li><a href="working-with-us.html">Working With Us</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <a href="partner.html" class="nav-cta">Partner With Us</a>
+</nav>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="menu.html" aria-current="page">Menu</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#gallery">In the Field</a>
+  <a href="working-with-us.html">Working With Us</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="partner.html" class="mobile-cta">Partner With Us</a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-inner reveal">
+    <div class="header-text">
+      <span class="label">Monthly Menu</span>
+      <h1 class="page-title">JUNE 2026</h1>
+    </div>
+    <div class="header-badge">
+      <div class="header-badge-main">4-WEEK CYCLE</div>
+      <div class="header-badge-sub">CACFP &amp; SFSP Compliant</div>
+    </div>
+  </div>
+</header>
+
+<!-- LUNCH -->
+<section class="lunch-section">
+  <div class="lunch-inner">
+    <div class="reveal">
+      <span class="section-label">Midday Meal</span>
+      <h2 class="section-title">LUNCH</h2>
+      <p class="menu-note">All lunches served with 1% milk</p>
+    </div>
+    <div id="lunch-weeks"></div>
+  </div>
+</section>
+
+<!-- BREAKFAST -->
+<section class="bfast-section">
+  <div class="bfast-inner">
+    <div class="reveal">
+      <span class="section-label">Morning Meal</span>
+      <h2 class="section-title">BREAKFAST</h2>
+      <p class="menu-note">All breakfasts served with 1% milk</p>
+    </div>
+    <div id="bfast-weeks"></div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">WHOLESOME <span>PLATES</span> CATERING LLC</div>
+    <div class="footer-sub">Atlanta, Georgia &nbsp;·&nbsp; CACFP &amp; SFSP Certified</div>
+  </div>
+  <div class="footer-right">
+    <a href="mailto:info@wholesomeplatescatering.com">info@wholesomeplatescatering.com</a><br>
+    &copy; 2026 Wholesome Plates Catering LLC. All rights reserved.<br>
+    <a href="https://staff.wholesomeplatescatering.com" class="footer-team-login">Team Login</a>
+  </div>
+</footer>
+
+<script>
+  // ── Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => ro.observe(el));
+
+  // ── Mobile nav
+  const burger = document.getElementById('nav-burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    mobileMenu.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }));
+
+  // ── Menu data
+  const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+  const lunchWeeks = [
+    {
+      label: 'Week 1',
+      meals: [
+        { name: 'Backyard BBQ Plate',   protein: 'BBQ Chicken',     grain: 'WG Bread',     veg: 'Wedge Fries',       fruit: 'Peas' },
+        { name: 'Street Taco Night',    protein: 'Seasoned Beef',   grain: 'WG Tortilla',  veg: 'Black Beans',       fruit: 'Southwest Corn' },
+        { name: 'All-American Dog',     protein: 'Beef Hot Dog',    grain: 'WG Bun',       veg: 'Coleslaw',          fruit: 'Banana' },
+        { name: 'Noodle Bowl',          protein: 'Beefy Yakisoba',  grain: 'WG Noodles',   veg: 'Shredded Carrot',   fruit: 'Pineapple' },
+        { name: 'Friday Slice',         protein: 'Cheese Pizza',    grain: 'WG Crust',     veg: 'Broccoli w/ Ranch', fruit: 'Banana' },
+      ]
+    },
+    {
+      label: 'Week 2',
+      meals: [
+        { name: 'Garden Chicken Wrap',  protein: 'Chicken Salad',   grain: 'WG Tortilla',  veg: 'Lettuce Mix',       fruit: 'Banana' },
+        { name: 'Sunday Gravy Night',   protein: 'Beef Spaghetti',  grain: 'WG Pasta',     veg: 'Green Beans',       fruit: 'Carrot Sticks' },
+        { name: 'Island Jerk Wrap',     protein: 'Jerk Chicken',    grain: 'WG Tortilla',  veg: 'Pinto Beans',       fruit: 'Cabbage' },
+        { name: 'Tokyo Meatball Bowl',  protein: 'Asian Meatballs', grain: 'WG Rice',      veg: 'Stir Fry Veggies',  fruit: 'Pineapple' },
+        { name: 'Creamy Chicken Pasta', protein: 'Chicken Alfredo', grain: 'WG Pasta',     veg: 'Green Peas',        fruit: 'Green Salad' },
+      ]
+    },
+    {
+      label: 'Week 3',
+      note: 'Same rotation as Week 1',
+      meals: [
+        { name: 'Backyard BBQ Plate',   protein: 'BBQ Chicken',     grain: 'WG Bread',     veg: 'Wedge Fries',       fruit: 'Peas' },
+        { name: 'Street Taco Night',    protein: 'Seasoned Beef',   grain: 'WG Tortilla',  veg: 'Black Beans',       fruit: 'Southwest Corn' },
+        { name: 'All-American Dog',     protein: 'Beef Hot Dog',    grain: 'WG Bun',       veg: 'Coleslaw',          fruit: 'Banana' },
+        { name: 'Noodle Bowl',          protein: 'Beefy Yakisoba',  grain: 'WG Noodles',   veg: 'Shredded Carrot',   fruit: 'Pineapple' },
+        { name: 'Friday Slice',         protein: 'Cheese Pizza',    grain: 'WG Crust',     veg: 'Broccoli w/ Ranch', fruit: 'Banana' },
+      ]
+    },
+    {
+      label: 'Week 4',
+      meals: [
+        { name: 'Dragon Noodle Bowl',   protein: 'Chicken Lo Mein', grain: 'WG Noodles',   veg: 'Cabbage & Carrot',  fruit: 'Mandarins' },
+        { name: 'Street Taco Night',    protein: 'Seasoned Beef',   grain: 'WG Tortilla',  veg: 'Black Beans',       fruit: 'Southwest Corn' },
+        { name: 'All-American Dog',     protein: 'Beef Hot Dog',    grain: 'WG Bun',       veg: 'Coleslaw',          fruit: 'Banana' },
+        { name: 'Buffalo Ranch Wrap',   protein: 'Buffalo Chicken', grain: 'WG Tortilla',  veg: 'Lettuce Mix',       fruit: 'Carrot Sticks' },
+        { name: 'Sunday Gravy Night',   protein: 'Beef Spaghetti',  grain: 'WG Pasta',     veg: 'Green Beans',       fruit: 'Carrot Sticks' },
+      ]
+    },
+  ];
+
+  const bfastWeeks = [
+    {
+      label: 'Week 1',
+      days: [
+        { grain: 'Biscuit',            fruit: 'Peaches' },
+        { grain: 'Plain Bagel',        fruit: 'Apples' },
+        { grain: 'Cereal',             fruit: 'Banana' },
+        { grain: 'Biscuit & Cheese',   fruit: 'Orange' },
+        { grain: 'Blueberry Bagel',    fruit: 'Apples' },
+      ]
+    },
+    {
+      label: 'Week 2',
+      days: [
+        { grain: 'Cereal',             fruit: 'Banana' },
+        { grain: 'Bagel',              fruit: 'Applesauce' },
+        { grain: 'Biscuit & Cheese',   fruit: 'Orange' },
+        { grain: 'Cereal',             fruit: 'Banana' },
+        { grain: 'Bagel',              fruit: 'Pineapple' },
+      ]
+    },
+    {
+      label: 'Week 3',
+      note: 'Same rotation as Week 1',
+      days: [
+        { grain: 'Biscuit',            fruit: 'Peaches' },
+        { grain: 'Plain Bagel',        fruit: 'Apples' },
+        { grain: 'Cereal',             fruit: 'Banana' },
+        { grain: 'Biscuit & Cheese',   fruit: 'Orange' },
+        { grain: 'Blueberry Bagel',    fruit: 'Apples' },
+      ]
+    },
+    {
+      label: 'Week 4',
+      days: [
+        { grain: 'Cereal',             fruit: 'Banana' },
+        { grain: 'Yogurt & Granola',   fruit: 'Orange' },
+        { grain: 'Pancakes',           fruit: 'Banana' },
+        { grain: 'Blueberry Bagel',    fruit: 'Apples' },
+        { grain: 'Biscuit & Cheese',   fruit: 'Banana' },
+      ]
+    },
+  ];
+
+  // ── Render lunch
+  const lunchContainer = document.getElementById('lunch-weeks');
+  lunchWeeks.forEach(week => {
+    const weekEl = document.createElement('div');
+    weekEl.className = 'lunch-week reveal';
+    const noteHtml = week.note ? `<span style="font-size:0.72rem;color:rgba(196,154,60,0.6);margin-left:16px;font-weight:300;">${week.note}</span>` : '';
+    weekEl.innerHTML = `
+      <div class="week-head">
+        <span class="week-label">${week.label}</span>${noteHtml}
+      </div>
+      <div class="lunch-grid">
+        ${week.meals.map((m, i) => `
+          <div class="lunch-card">
+            <div class="lunch-day">${DAYS[i]}</div>
+            <div class="lunch-name">${m.name}</div>
+            <div class="lunch-components">
+              <div class="lunch-row"><span class="lunch-type">Protein</span>${m.protein}</div>
+              <div class="lunch-row"><span class="lunch-type">Grain</span>${m.grain}</div>
+              <div class="lunch-row"><span class="lunch-type">Veg</span>${m.veg}</div>
+              <div class="lunch-row"><span class="lunch-type">Fruit</span>${m.fruit}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    lunchContainer.appendChild(weekEl);
+  });
+
+  // Re-observe new lunch elements
+  lunchContainer.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  // ── Render breakfast
+  const bfastContainer = document.getElementById('bfast-weeks');
+  bfastWeeks.forEach(week => {
+    const weekEl = document.createElement('div');
+    weekEl.className = 'bfast-week reveal';
+    const noteHtml = week.note ? `<span style="font-size:0.72rem;color:var(--mid);margin-left:16px;font-weight:300;">${week.note}</span>` : '';
+    weekEl.innerHTML = `
+      <div class="week-head" style="margin-bottom:12px;">
+        <span class="week-label">${week.label}</span>${noteHtml}
+      </div>
+      <div class="bfast-table-wrap">
+        <table class="bfast-table">
+          <thead>
+            <tr>
+              ${DAYS.map(d => `<th>${d}</th>`).join('')}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              ${week.days.map(d => `
+                <td>
+                  <div class="bfast-grain">${d.grain}</div>
+                  <div class="bfast-fruit">${d.fruit}</div>
+                </td>
+              `).join('')}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    `;
+    bfastContainer.appendChild(weekEl);
+  });
+
+  bfastContainer.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

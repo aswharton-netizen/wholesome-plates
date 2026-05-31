@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Partner With Us | Wholesome Plates Catering LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F6F2EB; --white: #FAFAF8; --forest: #1E3D28; --forest-mid: #2D5A3D;
+      --gold: #C49A3C; --gold-light: #DDB95A; --charcoal: #1A1A18; --mid: #5A5A52;
+      --border: rgba(30,61,40,0.12); color-scheme: light;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background-color: var(--cream); color: var(--charcoal); overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background-color: rgba(30,61,40,0.97); backdrop-filter: blur(10px); }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.08em; color: #fff; text-decoration: none; }
+    .nav-logo span { color: var(--gold-light); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--gold-light); }
+    .nav-cta { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--forest); background-color: var(--gold-light); padding: 10px 22px; text-decoration: none; transition: background-color 0.2s; }
+    .nav-cta:hover { background-color: var(--gold); }
+
+    .nav-burger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .nav-burger span { display: block; width: 22px; height: 2px; background-color: #fff; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background-color: rgba(30,61,40,0.99); flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.8); text-decoration: none; padding: 10px 0; transition: color 0.2s; }
+    .mobile-menu a:hover, .mobile-menu a[aria-current="page"] { color: var(--gold-light); }
+    .mobile-menu .mobile-cta { margin-top: 20px; color: var(--gold-light); border: 1px solid rgba(221,185,90,0.35); padding: 12px 32px; font-size: 0.88rem; letter-spacing: 0.14em; }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background-color: var(--forest); padding: 160px 48px 96px; }
+    .page-header-inner { max-width: 820px; margin: 0 auto; }
+    .label { font-family: 'Bebas Neue', sans-serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; display: inline-block; }
+    .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.0; letter-spacing: 0.02em; color: #fff; margin-bottom: 20px; }
+    .page-subhead { font-size: 1.05rem; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.65); max-width: 580px; }
+
+    /* ── COPY SECTION ── */
+    .partner-copy { background-color: var(--cream); padding: 96px 48px; }
+    .partner-copy-inner { max-width: 820px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .copy-main p { font-size: 0.98rem; font-weight: 300; line-height: 1.8; color: var(--mid); margin-bottom: 24px; }
+    .copy-main p:last-child { margin-bottom: 0; }
+    .copy-aside { }
+    .aside-head { font-family: 'Bebas Neue', sans-serif; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .benefit-list { list-style: none; }
+    .benefit-list li { font-size: 0.9rem; font-weight: 300; line-height: 1.6; color: var(--mid); padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; }
+    .benefit-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; font-weight: 400; }
+    .service-facts { margin-top: 36px; }
+    .fact-row { padding: 12px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: auto 1fr; gap: 16px; }
+    .fact-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; white-space: nowrap; }
+    .fact-val { font-size: 0.88rem; font-weight: 300; color: var(--mid); }
+
+    /* ── FORM SECTION ── */
+    .form-section { background-color: var(--forest); padding: 96px 48px; }
+    .form-inner { max-width: 720px; margin: 0 auto; }
+    .form-section-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 12px; }
+    .form-section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.0; color: #fff; margin-bottom: 48px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-field { display: flex; flex-direction: column; gap: 7px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+    .form-input, .form-select, .form-textarea {
+      background-color: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
+    .form-select { cursor: pointer; color: rgba(255,255,255,0.75); }
+    .form-select option { background-color: #1E3D28; color: #fff; }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    input[type="date"].form-input::-webkit-calendar-picker-indicator { filter: invert(1) opacity(0.5); }
+    .form-submit { width: 100%; background-color: var(--gold-light); color: var(--forest); font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 0.14em; border: none; padding: 18px 32px; cursor: pointer; transition: background-color 0.2s; text-transform: uppercase; margin-top: 8px; }
+    .form-submit:hover { background-color: var(--gold); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-confirmation { display: none; text-align: center; padding: 64px 0; }
+    .form-confirmation p { font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.7; }
+    .form-confirmation strong { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.06em; color: var(--gold-light); display: block; margin-bottom: 16px; }
+
+    /* ── FOOTER ── */
+    footer { background-color: var(--charcoal); padding: 44px 48px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--cream); }
+    .footer-logo span { color: var(--gold-light); }
+    .footer-sub { font-size: 0.72rem; font-weight: 300; letter-spacing: 0.06em; color: rgba(246,242,235,0.4); margin-top: 4px; }
+    .footer-right { text-align: right; font-size: 0.72rem; font-weight: 300; color: rgba(246,242,235,0.35); letter-spacing: 0.04em; line-height: 1.8; }
+    .footer-right a { color: rgba(246,242,235,0.35); text-decoration: none; }
+    .footer-right a:hover { color: var(--gold-light); }
+    .footer-team-login { font-size: 0.62rem !important; color: rgba(246,242,235,0.18) !important; display: inline-block; margin-top: 2px; }
+    .footer-team-login:hover { color: rgba(246,242,235,0.45) !important; }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 14px 20px; }
+      .nav-burger { display: flex; }
+      .nav-links { display: none; }
+      .page-header { padding: 120px 24px 64px; }
+      .partner-copy { padding: 64px 24px; }
+      .partner-copy-inner { grid-template-columns: 1fr; gap: 48px; }
+      .form-section { padding: 64px 24px; }
+      .form-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 20px; padding: 32px 24px; text-align: center; }
+      .footer-right { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">WHOLESOME <span>PLATES</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#gallery">In the Field</a></li>
+    <li><a href="working-with-us.html">Working With Us</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <a href="partner.html" class="nav-cta">Partner With Us</a>
+</nav>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="menu.html">Menu</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#gallery">In the Field</a>
+  <a href="working-with-us.html">Working With Us</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="partner.html" class="mobile-cta">Partner With Us</a>
+</div>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-inner reveal">
+    <div class="label">Work With Us</div>
+    <h1 class="page-title">RELIABLE CACFP &amp; SFSP CATERING<br>FOR SCHOOLS AND YOUTH PROGRAMS</h1>
+    <p class="page-subhead">Serving the Atlanta metro with scratch-cooked meals, full compliance support, and on-time delivery — so you can focus on your students.</p>
+  </div>
+</header>
+
+<!-- COPY + BENEFITS -->
+<section class="partner-copy">
+  <div class="partner-copy-inner">
+    <div class="copy-main reveal">
+      <p>Running a CACFP or SFSP program means managing a lot. Reimbursement claims, meal pattern requirements, documentation, delivery logistics — and at the center of it all, making sure children actually get fed.</p>
+      <p>We partner with schools, afterschool programs, daycares, and summer sites across Gwinnett County and the greater Atlanta area to provide fully compliant meal service. Our team handles menu planning, preparation, and delivery. Every meal meets federal meal pattern requirements and is documented for your records.</p>
+    </div>
+    <div class="copy-aside reveal">
+      <div class="aside-head">What You Get</div>
+      <ul class="benefit-list">
+        <li>Scratch-cooked breakfasts and lunches</li>
+        <li>CACFP and SFSP compliant menus</li>
+        <li>Reliable on-time delivery to your site</li>
+        <li>Documentation support for reimbursement claims</li>
+        <li>A team with years of real program experience</li>
+      </ul>
+      <div class="service-facts">
+        <div class="fact-row">
+          <div class="fact-label">Who We Serve</div>
+          <div class="fact-val">Schools, daycares, afterschool programs, summer feeding sites</div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-label">Service Area</div>
+          <div class="fact-val">Gwinnett County and surrounding Atlanta metro</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+  <div class="form-inner">
+    <div class="reveal">
+      <div class="form-section-label">Inquiry</div>
+      <h2 class="form-section-title">START THE CONVERSATION</h2>
+    </div>
+
+    <form id="partner-form" action="https://formspree.io/f/mzdwlzqv" method="POST" class="reveal">
+      <div class="form-grid">
+        <div class="form-field">
+          <label class="form-label" for="full-name">Full Name</label>
+          <input class="form-input" type="text" id="full-name" name="full-name" placeholder="Your name" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="org-name">Organization / Program Name</label>
+          <input class="form-input" type="text" id="org-name" name="org-name" placeholder="Your organization" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="program-type">Program Type</label>
+          <select class="form-select" id="program-type" name="program-type" required>
+            <option value="" disabled selected>Select one</option>
+            <option>CACFP</option>
+            <option>SFSP</option>
+            <option>Both</option>
+            <option>Not yet enrolled</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="cacfp-sponsor">Are you currently a CACFP sponsor?</label>
+          <select class="form-select" id="cacfp-sponsor" name="cacfp-sponsor" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Not sure</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="start-date">Desired Service Start Date</label>
+          <input class="form-input" type="date" id="start-date" name="start-date">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="num-sites">Number of Sites</label>
+          <input class="form-input" type="number" id="num-sites" name="num-sites" min="1" placeholder="e.g. 2">
+        </div>
+        <div class="form-field full">
+          <label class="form-label" for="meal-count">Estimated Daily Meal Count</label>
+          <input class="form-input" type="number" id="meal-count" name="meal-count" min="1" placeholder="e.g. 150">
+        </div>
+        <div class="form-field full">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your program, timeline, or any questions you have…"></textarea>
+        </div>
+        <div class="form-field full">
+          <button class="form-submit" type="submit">Submit Inquiry</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="form-confirmation" id="form-done">
+      <strong>Message Received</strong>
+      <p>Thank you — we'll be in touch within one business day.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">WHOLESOME <span>PLATES</span> CATERING LLC</div>
+    <div class="footer-sub">Atlanta, Georgia &nbsp;·&nbsp; CACFP &amp; SFSP Certified</div>
+  </div>
+  <div class="footer-right">
+    <a href="mailto:info@wholesomeplatescatering.com">info@wholesomeplatescatering.com</a><br>
+    &copy; 2026 Wholesome Plates Catering LLC. All rights reserved.<br>
+    <a href="https://staff.wholesomeplatescatering.com" class="footer-team-login">Team Login</a>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => ro.observe(el));
+
+  const burger = document.getElementById('nav-burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    mobileMenu.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }));
+
+  const form = document.getElementById('partner-form');
+  const confirmation = document.getElementById('form-done');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        confirmation.style.display = 'block';
+      } else {
+        btn.textContent = 'Submit Inquiry';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Submit Inquiry';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
