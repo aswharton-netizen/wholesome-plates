@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*, *::before, *::after { box-sizing: border-box; }
+:root { color-scheme: light; }
+body { background-color: #1C3A2A; color: #FDFAF5; font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
