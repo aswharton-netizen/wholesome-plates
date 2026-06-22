@@ -12,7 +12,7 @@ import Footer from '@/components/Footer'
 const strip1 = [
   { src: '/images/strip1-a.jpg', caption: 'Citrus-braised pork taco — cochinita pibil-inspired, avocado crema, pickled onion, cotija' },
   { src: '/images/strip1-b.jpg', caption: 'Bún thịt nướng — Vietnamese grilled pork bowl with pickled daikon and carrot' },
-  { src: '/images/strip1-c.jpg', caption: 'Poached egg crostini — chili flake, herb oil, toasted bread' },
+  { src: '/images/strip1-c.jpg', caption: 'Whipped ricotta crostini — raw honey, Aleppo pepper' },
   { src: '/images/strip1-d.jpg', caption: 'Chicken and dumplings — from scratch, Dutch oven' },
 ]
 
