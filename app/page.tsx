@@ -10,14 +10,14 @@ import BookingSection from '@/components/BookingSection'
 import Footer from '@/components/Footer'
 
 const strip1 = [
-  { src: '/images/strip1-a.jpg', caption: 'Citrus-braised pork taco — avocado crema, pickled red onion' },
-  { src: '/images/strip1-b.jpg', caption: 'Bún thịt nướng — grilled pork rice bowl with pickled daikon, cucumber, and carrot' },
+  { src: '/images/strip1-a.jpg', caption: 'Citrus-braised pork taco — cochinita pibil-inspired, avocado crema, pickled onion, cotija' },
+  { src: '/images/strip1-b.jpg', caption: 'Bún thịt nướng — Vietnamese grilled pork bowl with pickled daikon and carrot' },
   { src: '/images/strip1-c.jpg', caption: 'Poached egg crostini — chili flake, herb oil, toasted bread' },
   { src: '/images/strip1-d.jpg', caption: 'Chicken and dumplings — from scratch, Dutch oven' },
 ]
 
 const strip2 = [
-  { src: '/images/strip2-a.jpg', caption: 'Chocolate cake — powdered sugar, fresh raspberries' },
+  { src: '/images/strip2-a.jpg', caption: 'Chocolate cake — powdered sugar' },
   { src: '/images/strip2-b.jpg', caption: 'Buttercream cupcakes — fresh piped frosting' },
   { src: '/images/strip2-c.jpg', caption: 'Layered buttermilk biscuits — golden, pull-apart' },
   { src: '/images/strip2-d.jpg', caption: 'Skillet cornbread — heart-shaped Le Creuset' },
