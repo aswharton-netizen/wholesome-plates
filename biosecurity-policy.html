@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light">
-  <title>About | Wholesome Plates Catering LLC</title>
+  <title>Biosecurity &amp; Food Supply Protection Policy | Wholesome Plates Catering LLC</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,11 +47,29 @@
     .label { font-family: 'Bebas Neue', sans-serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; display: inline-block; }
     .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); line-height: 1.0; letter-spacing: 0.02em; color: #fff; }
 
-    .about-body { background-color: var(--cream); padding: 96px 48px; }
-    .about-body-inner { max-width: 720px; margin: 0 auto; }
-    .about-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--forest); line-height: 1.1; margin-bottom: 44px; }
-    .about-body p { font-size: 1.0rem; font-weight: 300; line-height: 1.85; color: var(--mid); margin-bottom: 28px; }
-    .about-body p:last-child { margin-bottom: 0; }
+    .legal-body { background-color: var(--cream); padding: 96px 48px; }
+    .legal-body-inner { max-width: 720px; margin: 0 auto; }
+    .legal-effective { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); margin-bottom: 44px; }
+    .legal-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--forest); line-height: 1.15; margin: 48px 0 16px; }
+    .legal-body h2:first-of-type { margin-top: 0; }
+    .legal-body h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.03em; color: var(--forest-mid); margin: 30px 0 12px; }
+    .legal-body p { font-size: 1.0rem; font-weight: 300; line-height: 1.85; color: var(--mid); margin-bottom: 22px; }
+    .legal-body ul, .legal-body ol { padding-left: 22px; margin: 0 0 22px; color: var(--mid); font-weight: 300; line-height: 1.8; }
+    .legal-body li { margin-bottom: 8px; }
+    .legal-body ol li::marker { color: var(--gold); font-weight: 600; }
+    .legal-body a { color: var(--forest-mid); }
+    .legal-body a:hover { color: var(--gold); }
+
+    .notice-card { background-color: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--gold-light); padding: 28px 32px; margin: 8px 0 44px; }
+    .notice-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .notice-card p { margin-bottom: 0; color: var(--charcoal); font-weight: 400; }
+
+    .policy-list { list-style: none; margin: 8px 0 0; padding: 0; }
+    .policy-list li { border-top: 1px solid var(--border); }
+    .policy-list li:last-child { border-bottom: 1px solid var(--border); }
+    .policy-list a { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 2px; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.02em; color: var(--forest); text-decoration: none; transition: color 0.2s; }
+    .policy-list a:hover { color: var(--gold); }
+    .policy-list .arrow { font-size: 1rem; color: var(--gold-light); flex-shrink: 0; }
 
     footer { background-color: var(--charcoal); padding: 44px 48px; display: flex; justify-content: space-between; align-items: center; }
     .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--cream); }
@@ -71,7 +89,7 @@
       .nav-burger { display: flex; }
       .nav-links { display: none; }
       .page-header { padding: 120px 24px 64px; }
-      .about-body { padding: 64px 24px; }
+      .legal-body { padding: 64px 24px; }
       footer { flex-direction: column; gap: 20px; padding: 32px 24px; text-align: center; }
       .footer-right { text-align: center; }
     }
@@ -90,7 +108,7 @@
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </li>
-    <li><a href="about.html" aria-current="page">About</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="menu.html">Menu</a></li>
     <li><a href="working-with-us.html">Working With Us</a></li>
   </ul>
@@ -101,7 +119,7 @@
 </nav>
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <a href="index.html">Home</a>
-  <a href="about.html" aria-current="page">About</a>
+  <a href="about.html">About</a>
   <a href="menu.html">Menu</a>
   <a href="index.html#services">Services</a>
   <a href="index.html#gallery">In the Field</a>
@@ -112,19 +130,80 @@
 
 <header class="page-header">
   <div class="page-header-inner reveal">
-    <div class="label">About Us</div>
-    <h1 class="page-title">WHO WE ARE</h1>
+    <div class="label">Food Safety &amp; Compliance</div>
+    <h1 class="page-title">BIOSECURITY &amp; SUPPLY PROTECTION</h1>
   </div>
 </header>
 
-<section class="about-body">
-  <div class="about-body-inner">
-    <h2 class="about-headline reveal">Every Child Deserves a Real Meal.</h2>
-    <div class="reveal">
-      <p>For too many kids in our communities, the meal they receive at school or in an afterschool program isn't a supplement — it's the meal. When food insecurity is part of a child's daily reality, it shows up in the classroom, in their ability to focus, and in their sense of stability. We started Wholesome Plates because no child should have to wonder where their next meal is coming from.</p>
-      <p>We bring over three years of CACFP and SFSP operational experience, serving hundreds of children daily across multiple sites in the Atlanta metro. Our menus are made from real, whole ingredients — cooked from scratch with the same care you'd bring to your own kitchen. Real food, made with care.</p>
-      <p>Our team knows what compliance looks like day to day. We show up, we document, and we take the trust that schools and families place in us seriously. Feeding children well is not a small thing. We don't treat it like one.</p>
-    </div>
+<section class="legal-body">
+  <div class="legal-body-inner">
+    <div class="legal-effective reveal">Effective Date: August 2026</div>
+
+    <h2 class="reveal">Purpose</h2>
+    <p class="reveal">Wholesome Plates maintains procedures designed to protect food, ingredients, supplies, production processes, storage areas, and deliveries from intentional contamination, tampering, theft, unauthorized access, or other threats to food safety.</p>
+    <p class="reveal">These protections apply throughout purchasing, receiving, storage, preparation, production, packaging, staging, transportation, and delivery.</p>
+
+    <h2 class="reveal">Shared Commercial Kitchen Controls</h2>
+    <p class="reveal">Wholesome Plates operates within a shared licensed commercial kitchen facility.</p>
+    <p class="reveal">Because portions of the facility and equipment are accessible to other authorized food businesses, WPC maintains additional controls over food and supplies under its custody.</p>
+    <p class="reveal">WPC refrigerated and frozen inventory is maintained within designated locked storage cages inside shared temperature-controlled storage areas. Dry inventory is maintained in designated secured storage.</p>
+    <p class="reveal">Access to WPC-controlled inventory is limited to authorized personnel.</p>
+    <p class="reveal">Food and ingredients are not left unsecured in common areas except as reasonably necessary during active receiving, production, staging, or transportation.</p>
+    <p class="reveal">Evidence of unauthorized access, unexplained movement of inventory, compromised packaging, tampering, or another food-security concern will result in affected product being placed on hold pending management review.</p>
+
+    <h2 class="reveal">Approved Suppliers &amp; Receiving</h2>
+    <p class="reveal">Wholesome Plates purchases food and supplies from approved commercial suppliers.</p>
+    <p class="reveal">Deliveries are received by a ServSafe-certified WPC employee or other authorized trained personnel.</p>
+    <p class="reveal">At receiving, WPC evaluates products as appropriate for:</p>
+    <ul class="reveal">
+      <li>temperature;</li>
+      <li>condition;</li>
+      <li>packaging integrity;</li>
+      <li>contamination;</li>
+      <li>evidence of tampering; and</li>
+      <li>other indications that food safety may have been compromised.</li>
+    </ul>
+    <p class="reveal">When an approved supplier makes a key-drop delivery, WPC personnel inspect the products and verify applicable temperatures promptly upon arrival at the kitchen.</p>
+    <p class="reveal">Products determined to be unsafe or unacceptable will be rejected or placed on hold pending management determination.</p>
+
+    <h2 class="reveal">Production Area Security &amp; Sanitation</h2>
+    <p class="reveal">WPC uses shared commercial kitchen equipment, including shared cooking and production equipment.</p>
+    <p class="reveal">Before production, WPC personnel inspect applicable work areas and clean and sanitize food-contact surfaces and shared equipment before use.</p>
+    <p class="reveal">WPC also cleans and sanitizes applicable equipment and production areas following use in accordance with company and facility procedures.</p>
+    <p class="reveal">These controls supplement cleaning and facility-maintenance services provided by the shared commercial kitchen operator.</p>
+
+    <h2 class="reveal">Employee Responsibilities</h2>
+    <p class="reveal">Employees are required to promptly report:</p>
+    <ul class="reveal">
+      <li>unauthorized individuals in restricted areas;</li>
+      <li>suspicious activity;</li>
+      <li>evidence of product tampering;</li>
+      <li>damaged or compromised packaging;</li>
+      <li>unexplained changes to WPC inventory;</li>
+      <li>suspected intentional contamination; or</li>
+      <li>other potential food-security concerns.</li>
+    </ul>
+    <p class="reveal">Employees shall not use food reasonably suspected of contamination or tampering.</p>
+
+    <h2 class="reveal">Transportation &amp; Delivery Security</h2>
+    <p class="reveal">Prepared food is wrapped, sealed, and placed into appropriate insulated catering carriers for transportation.</p>
+    <p class="reveal">Food remains under WPC control during transportation and is delivered to designated client locations or authorized representatives.</p>
+    <p class="reveal">Delivery documentation supports chain-of-custody and traceability requirements.</p>
+
+    <h2 class="reveal">Biosecurity Incident Response</h2>
+    <p class="reveal">When intentional contamination, tampering, or another significant food-security threat is reasonably suspected, WPC will:</p>
+    <ol class="reveal">
+      <li>stop use or distribution of affected product;</li>
+      <li>isolate affected or potentially affected food;</li>
+      <li>secure affected products or areas where appropriate;</li>
+      <li>notify management;</li>
+      <li>determine whether client locations may be affected;</li>
+      <li>initiate recall/traceability procedures when warranted;</li>
+      <li>notify affected clients as appropriate;</li>
+      <li>contact appropriate regulatory or law-enforcement authorities when circumstances warrant;</li>
+      <li>preserve relevant documentation; and</li>
+      <li>document corrective action and final disposition.</li>
+    </ol>
   </div>
 </section>
 

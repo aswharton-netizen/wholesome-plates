@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light">
-  <title>About | Wholesome Plates Catering LLC</title>
+  <title>Food Safety &amp; Recall Notices | Wholesome Plates Catering LLC</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,11 +47,29 @@
     .label { font-family: 'Bebas Neue', sans-serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; display: inline-block; }
     .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); line-height: 1.0; letter-spacing: 0.02em; color: #fff; }
 
-    .about-body { background-color: var(--cream); padding: 96px 48px; }
-    .about-body-inner { max-width: 720px; margin: 0 auto; }
-    .about-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--forest); line-height: 1.1; margin-bottom: 44px; }
-    .about-body p { font-size: 1.0rem; font-weight: 300; line-height: 1.85; color: var(--mid); margin-bottom: 28px; }
-    .about-body p:last-child { margin-bottom: 0; }
+    .legal-body { background-color: var(--cream); padding: 96px 48px; }
+    .legal-body-inner { max-width: 720px; margin: 0 auto; }
+    .legal-effective { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); margin-bottom: 44px; }
+    .legal-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--forest); line-height: 1.15; margin: 48px 0 16px; }
+    .legal-body h2:first-of-type { margin-top: 0; }
+    .legal-body h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.03em; color: var(--forest-mid); margin: 30px 0 12px; }
+    .legal-body p { font-size: 1.0rem; font-weight: 300; line-height: 1.85; color: var(--mid); margin-bottom: 22px; }
+    .legal-body ul, .legal-body ol { padding-left: 22px; margin: 0 0 22px; color: var(--mid); font-weight: 300; line-height: 1.8; }
+    .legal-body li { margin-bottom: 8px; }
+    .legal-body ol li::marker { color: var(--gold); font-weight: 600; }
+    .legal-body a { color: var(--forest-mid); }
+    .legal-body a:hover { color: var(--gold); }
+
+    .notice-card { background-color: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--gold-light); padding: 28px 32px; margin: 8px 0 44px; }
+    .notice-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .notice-card p { margin-bottom: 0; color: var(--charcoal); font-weight: 400; }
+
+    .policy-list { list-style: none; margin: 8px 0 0; padding: 0; }
+    .policy-list li { border-top: 1px solid var(--border); }
+    .policy-list li:last-child { border-bottom: 1px solid var(--border); }
+    .policy-list a { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 2px; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.02em; color: var(--forest); text-decoration: none; transition: color 0.2s; }
+    .policy-list a:hover { color: var(--gold); }
+    .policy-list .arrow { font-size: 1rem; color: var(--gold-light); flex-shrink: 0; }
 
     footer { background-color: var(--charcoal); padding: 44px 48px; display: flex; justify-content: space-between; align-items: center; }
     .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--cream); }
@@ -71,7 +89,7 @@
       .nav-burger { display: flex; }
       .nav-links { display: none; }
       .page-header { padding: 120px 24px 64px; }
-      .about-body { padding: 64px 24px; }
+      .legal-body { padding: 64px 24px; }
       footer { flex-direction: column; gap: 20px; padding: 32px 24px; text-align: center; }
       .footer-right { text-align: center; }
     }
@@ -90,7 +108,7 @@
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </li>
-    <li><a href="about.html" aria-current="page">About</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="menu.html">Menu</a></li>
     <li><a href="working-with-us.html">Working With Us</a></li>
   </ul>
@@ -101,7 +119,7 @@
 </nav>
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <a href="index.html">Home</a>
-  <a href="about.html" aria-current="page">About</a>
+  <a href="about.html">About</a>
   <a href="menu.html">Menu</a>
   <a href="index.html#services">Services</a>
   <a href="index.html#gallery">In the Field</a>
@@ -112,19 +130,23 @@
 
 <header class="page-header">
   <div class="page-header-inner reveal">
-    <div class="label">About Us</div>
-    <h1 class="page-title">WHO WE ARE</h1>
+    <div class="label">Food Safety</div>
+    <h1 class="page-title">RECALL NOTICES</h1>
   </div>
 </header>
 
-<section class="about-body">
-  <div class="about-body-inner">
-    <h2 class="about-headline reveal">Every Child Deserves a Real Meal.</h2>
-    <div class="reveal">
-      <p>For too many kids in our communities, the meal they receive at school or in an afterschool program isn't a supplement — it's the meal. When food insecurity is part of a child's daily reality, it shows up in the classroom, in their ability to focus, and in their sense of stability. We started Wholesome Plates because no child should have to wonder where their next meal is coming from.</p>
-      <p>We bring over three years of CACFP and SFSP operational experience, serving hundreds of children daily across multiple sites in the Atlanta metro. Our menus are made from real, whole ingredients — cooked from scratch with the same care you'd bring to your own kitchen. Real food, made with care.</p>
-      <p>Our team knows what compliance looks like day to day. We show up, we document, and we take the trust that schools and families place in us seriously. Feeding children well is not a small thing. We don't treat it like one.</p>
+<section class="legal-body">
+  <div class="legal-body-inner">
+    <p class="reveal">Wholesome Plates Catering LLC is committed to the safety and integrity of the meals we prepare and deliver. This page provides current public notices regarding any food safety holds or product recalls affecting products distributed by Wholesome Plates.</p>
+
+    <h2 class="reveal">Current Notices</h2>
+    <div class="notice-card reveal">
+      <div class="notice-label">Status</div>
+      <p>There are currently no active food safety or product recall notices.</p>
     </div>
+
+    <p class="reveal">For urgent food safety or recall inquiries, please contact <a href="mailto:info@wholesomeplatescatering.com">info@wholesomeplatescatering.com</a>.</p>
+    <p class="reveal">This notice is part of our <a href="food-safety-compliance.html">Food Safety &amp; Compliance</a> program, which includes our <a href="food-recall-policy.html">Food Recall &amp; Traceability Policy</a>.</p>
   </div>
 </section>
 
